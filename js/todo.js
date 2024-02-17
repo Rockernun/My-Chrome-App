@@ -4,10 +4,10 @@ const toDoList = document.getElementById("todo-list");
 
 const SAVEDTODO_KEY = "savedToDo";
 
-const savedToDo = [];
+let saveToDo = [];
 
 function saveToDos() {
-  localStorage.setItem(SAVEDTODO_KEY, JSON.stringify(savedToDo));
+  localStorage.setItem(SAVEDTODO_KEY, JSON.stringify(saveToDo));
 }
 
 function addToDo(todos) {
@@ -31,7 +31,7 @@ function handleToDoSubmit(event) {
   event.preventDefault();
   const todos = toDoInput.value;
   toDoInput.value = "";
-  savedToDo.push(todos);
+  saveToDo.push(todos);
   addToDo(todos);
   saveToDos();
 }
@@ -42,5 +42,6 @@ const fixedToDos = localStorage.getItem(SAVEDTODO_KEY);
 
 if(fixedToDos !== null) {
   const parsedToDos = JSON.parse(fixedToDos);
-  parsedToDos.forEach();
+  saveToDo = parsedToDos;
+  parsedToDos.forEach(addToDo);
 }

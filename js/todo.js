@@ -12,8 +12,9 @@ function saveToDos() {
 
 function addToDo(todos) {
   const li = document.createElement("li");
+  li.id = todos.id;
   const span = document.createElement("span");
-  span.innerText = todos;
+  span.innerText = todos.text;
   const button = document.createElement("button");
   button.innerText = "❌";
   button.addEventListener('click', deleteToDo);
@@ -31,8 +32,14 @@ function handleToDoSubmit(event) {
   event.preventDefault();
   const todos = toDoInput.value;
   toDoInput.value = "";
-  saveToDo.push(todos);
-  addToDo(todos);
+
+  const newToDoObj = {
+    text: todos,
+    id: Date.now(),
+  };
+
+  saveToDo.push(newToDoObj);
+  addToDo(newToDoObj);
   saveToDos();
 }
 

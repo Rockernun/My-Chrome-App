@@ -15,9 +15,11 @@ function addToDo(todos) {
   li.id = todos.id;
   const span = document.createElement("span");
   span.innerText = todos.text;
+
   const button = document.createElement("button");
   button.innerText = "❌";
   button.addEventListener('click', deleteToDo);
+
   li.appendChild(span);
   li.appendChild(button);
   toDoList.appendChild(li);
@@ -26,6 +28,8 @@ function addToDo(todos) {
 function deleteToDo(event) {
   const li = event.target.parentElement;
   li.remove();
+  saveToDo = saveToDo.filter((toDo) => toDo.id !== parseInt(li.id));
+  saveToDos();
 }
 
 function handleToDoSubmit(event) {
@@ -47,8 +51,9 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 
 const fixedToDos = localStorage.getItem(SAVEDTODO_KEY);
 
-if(fixedToDos !== null) {
+if (fixedToDos !== null) {
   const parsedToDos = JSON.parse(fixedToDos);
   saveToDo = parsedToDos;
   parsedToDos.forEach(addToDo);
 }
+

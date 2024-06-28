@@ -4,5 +4,5 @@
   JavaScript가 어떻게 데이터를 저장하는지 알아본다. 그 후, 학습한 것을 바탕으로 생산성 있는 다양한 기능들을 지원하는 앱을 만들었다.
 - 사용 기술 : HTML, CSS, JavaScript, localStorage API, Date Object, Math module, Openweather API
 - 배운 점 :
-- [Notion](https://www.notion.so/044a7641c9494dacb221fc7d6256ac8e)
+- [Notion]([https://www.notion.so/044a7641c9494dacb221fc7d6256ac8e](https://glamorous-falcon-262.notion.site/044a7641c9494dacb221fc7d6256ac8e?pvs=4))
 - 문제 해결 :
